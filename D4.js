@@ -121,22 +121,13 @@ console.log("esercizio2: characters->", characters);
   {name: Leia Organa, hair_color: "brown", eye_color: "brown"}
 */
 let femaleCharacters = [];
-let propertyTodelete = [
-  "name",
-  "height",
-  "mass",
-  "hair_color",
-  "skin_color",
-  "eye_color",
-  "birth_year",
-  "gender",
-];
+let propertyTodelete = ["height", "mass", "skin_color", "birth_year", "gender"];
 for (let i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender === "female") {
     let personaggioFemminile = starWarsCharacters[i];
 
     for (let j = 0; j < propertyTodelete.length; j++) {
-      delete personaggioFemminile[propertyTodelete];
+      delete personaggioFemminile[propertyTodelete[j]];
     }
     femaleCharacters.push(personaggioFemminile);
   }
