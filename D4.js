@@ -112,7 +112,7 @@ Usa il valore contenuto inserendolo nell'array creato precedentemente.
 Come risultato dovresti ottenere qualcosa di simile: ["Luke Skywalker", "C-3PO", "R2-D2", etc..]
 */
 for (let i = 0; i < starWarsCharacters.length; i++) {
-  characters[i] = starWarsCharacters[i].name;
+  characters.push(starWarsCharacters[i].name);
 }
 console.log("esercizio2: characters->", characters);
 
@@ -121,11 +121,24 @@ console.log("esercizio2: characters->", characters);
   {name: Leia Organa, hair_color: "brown", eye_color: "brown"}
 */
 let femaleCharacters = [];
-let j = 0;
+let propertyTodelete = [
+  "name",
+  "height",
+  "mass",
+  "hair_color",
+  "skin_color",
+  "eye_color",
+  "birth_year",
+  "gender",
+];
 for (let i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender === "female") {
-    femaleCharacters[j] = starWarsCharacters[i].name;
-    j++;
+    let personaggioFemminile = starWarsCharacters[i];
+
+    for (let j = 0; j < propertyTodelete.length; j++) {
+      delete personaggioFemminile[propertyTodelete];
+    }
+    femaleCharacters.push(personaggioFemminile);
   }
 }
 console.log("esercizio3: female characters->", femaleCharacters);
@@ -142,7 +155,7 @@ let eyeColor = {
   "blue-gray": [],
 };
 
-console.log("esercizio 4:", eyeColor["blue-gray"]);
+console.log("esercizio 4:", eyeColor);
 
 /* ESERCIZIO 5
   Inserisci l'oggetto dei personaggi in "starWarsCharacters" nell'array corrispondente al colore dei loro occhi nell'oggetto "eyeColor" precedentemente creato.
@@ -155,9 +168,9 @@ console.log("esercizio 4:", eyeColor["blue-gray"]);
 for (let i = 0; i < starWarsCharacters.length; i++) {
   switch (starWarsCharacters[i].eye_color) {
     case "blue":
-      eyeColor["blue"].push(starWarsCharacters[i]);
-
+      eyeColor.blue.push(starWarsCharacters[i]);
       break;
+
     case "yellow":
       eyeColor.yellow.push(starWarsCharacters[i]);
       break;
@@ -172,13 +185,13 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
 
     case "blue-gray":
       eyeColor["blue-gray"].push(starWarsCharacters[i]);
-
       break;
+
     default:
       break;
   }
 }
-console.log("Esercizio 5:", eyeColor);
+console.log("Esercizio 5: ", eyeColor);
 
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio
