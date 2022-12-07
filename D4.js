@@ -186,8 +186,10 @@ console.log("Esercizio 5:", eyeColor);
 let i = 0;
 let massaTotale = 0;
 while (i < starWarsCharacters.length) {
-  massaTotale += Number(starWarsCharacters[i].mass);
-  i++;
+  if (Number(starWarsCharacters[i].mass) != undefined) {
+    massaTotale += Number(starWarsCharacters[i].mass);
+    i++;
+  }
 }
 console.log("Esercizio 6: massa totale", massaTotale);
 
@@ -204,7 +206,7 @@ Se la massa è superiore a 1000 stampa in console: "DANGER! OVERLOAD ALERT: Jump
 
 Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
-
+console.log("Esercizio 7:");
 switch (massaTotale !== undefined) {
   case massaTotale < 500:
     console.log("Ship is under loaded");
@@ -230,6 +232,14 @@ switch (massaTotale !== undefined) {
 
 Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi creare un nuovo array, o tentare la riassegnazione del valore corrispondente)
 */
+console.log("Esercizio 8");
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "n/a") {
+    // console.log("trovato gender n/a");
+    starWarsCharacters[i].gender = "robot";
+  }
+}
+console.log(starWarsCharacters);
 
 /* EXTRA ESERCIZIO 9
 
@@ -245,3 +255,16 @@ Una volta fatto, crea un console.log() per controllare la proprietà length di "
 
 Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo
 */
+
+let personaggio = starWarsCharacters[0];
+let descrizione =
+  "Mi chiamo " +
+  personaggio.name +
+  " sono alto " +
+  personaggio.height +
+  "cm sono nato nell'anno stellare numero " +
+  personaggio.birth_year +
+  "i miei capelli sono " +
+  personaggio.hair_color;
+
+console.log("esercizio 10:", descrizione);
